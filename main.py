@@ -2,7 +2,6 @@ import json, csv, os
 from llm.generator import read_resume_docx, generate_cover_letter
 from email_sender.smtp_sender import send_application
 from job_fetchers.reed import fetch_reed_jobs
-from job_fetchers.cv_library import fetch_cv_jobs
 from job_fetchers.indeed import fetch_indeed_jobs
 
 with open("config/settings.json") as f:
