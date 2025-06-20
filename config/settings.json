@@ -1,9 +1,11 @@
 {
-  "reed_api_key": "REPLACE_ME",
-  "openai_api_key": "REPLACE_ME",
-  "email": "your.email@example.com",
-  "email_password": "your-app-password",
-  "resume_docx_path": "cv/resume.docx",
-  "resume_pdf_path": "cv/resume.pdf",
-  "search_query": "Data Engineer"
+  "openai_api_key": "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",
+  "reed_api_key": "8bdf025b-d51f-49b2-9f91-3ee7b7d4cc93",
+  "apify_token": "apify_api_e3LHvMN7aZrbE2HfO4dWLjEhwj0y7U0LIKGU",
+  "email": "tdawe1@hotmail.co.uk",
+  "email_password": "eq007k99mjiaetioDaweAirport?",
+  "resume_docx_path": "cv/Thomas Dawe CV  (4) (2).docx",
+  "resume_pdf_path": "cv/Thomas Dawe CV  (4) (2).pdf",
+  "search_queries": ["marketing manager", "marketing executive", "SEO manager","digital marketing manager","senior marketing executive"],
+  "locations": ["London", "Remote","Kent","West Sussex","East Sussex","Tunbridge Wells","Tonbridge","Sevenoaks","East Grinstead","Crowborough","Croydon"]
 }

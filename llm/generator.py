@@ -1,11 +1,8 @@
-import openai
-from docx import Document
+def generate_cover_letter(job, resume_text, api_key, mock=False):
+    if mock:
+        # Return a fixed dummy cover letter for testing
+        return f"Dear Hiring Manager,\n\nI am very interested in the position of {job.get('title', 'the job')} at your company.\n\nBest regards,\nYour Name"
 
-def read_resume_docx(path):
-    doc = Document(path)
-    return "\n".join(p.text for p in doc.paragraphs)
-
-def generate_cover_letter(job, resume_text, api_key):
     openai.api_key = api_key
     prompt = f"""
 You are applying for this role in the UK:
@@ -20,7 +17,7 @@ Your resume summary:
 Write a concise, UK-style cover letter tailored to this role.
 """
     res = openai.ChatCompletion.create(
-        model="gpt-4",
+        model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}]
     )
     return res.choices[0].message.content

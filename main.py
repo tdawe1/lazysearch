@@ -4,6 +4,14 @@ from email_sender.smtp_sender import send_application
 from job_fetchers.reed import fetch_reed_jobs
 from job_fetchers.indeed import fetch_indeed_jobs
 
+mock_mode = True  # Set False when ready to use real API
+
+for job in jobs:
+    job_id = job.get("jobId") or job.get("id") or job.get("jobKey")
+    if job_id in applied:
+        continue
+    cover = generate_cover_letter(job, resume_text, cfg["openai_api_key"], mock=mock_mode)
+
 with open("config/settings.json") as f:
     cfg = json.load(f)
 
@@ -15,7 +23,8 @@ if os.path.exists("logs/applied_jobs.csv"):
 
 for query in cfg["search_queries"]:
     for location in cfg["locations"]:
-        jobs = fetch_reed_jobs(cfg["reed_api_key"], query, location) +                fetch_cv_jobs(query, location) +                fetch_indeed_jobs(cfg["apify_token"], query, location)
+        jobs = fetch_reed_jobs(cfg["reed_api_key"], query, location) + \
+               fetch_indeed_jobs(cfg["apify_token"], query, location)
 
         for job in jobs:
             job_id = job.get("jobId") or job.get("id") or job.get("jobKey")

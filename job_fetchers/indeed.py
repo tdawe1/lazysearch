@@ -2,9 +2,12 @@ from apify_client import ApifyClient
 
 def fetch_indeed_jobs(apify_token, query, location):
     client = ApifyClient(apify_token)
-    run = client.actor("drobnikj/indeed-scraper").call({
-        "query": query,
+    run_input = {
+        "position": query,
+        "country": "GB",  # Use 'GB' for the United Kingdom
         "location": location,
         "maxItems": 10
-    })
-    return list(client.dataset(run["defaultDatasetId"]).iterate_items())
+    }
+    run = client.actor("misceres/indeed-scraper").call(run_input=run_input)
+    dataset_id = run["defaultDatasetId"]
+    return list(client.dataset(dataset_id).iterate_items())
