@@ -3,6 +3,7 @@
   "openai_api_key": "REPLACE_ME",
   "email": "your.email@example.com",
   "email_password": "your-app-password",
-  "resume_text": "Paste your resume here as plain text",
+  "resume_docx_path": "cv/resume.docx",
+  "resume_pdf_path": "cv/resume.pdf",
   "search_query": "Data Engineer"
 }
