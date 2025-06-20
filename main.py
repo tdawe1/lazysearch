@@ -3,6 +3,13 @@ from llm.generator import read_resume_docx, generate_cover_letter
 from email_sender.smtp_sender import send_application
 from job_fetchers.reed import fetch_reed_jobs
 from job_fetchers.indeed import fetch_indeed_jobs
+from resume_loader import load_combined_resumes
+
+docx_path = "path/to/your_resume.docx"
+pdf_path = "path/to/your_resume.pdf"
+
+resume_text = load_combined_resumes(docx_path, pdf_path)
+
 
 mock_mode = True  # Set False when ready to use real API
 
