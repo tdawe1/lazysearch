@@ -3,3 +3,4 @@ openai
 docx
 apify-client
 python-docx
+pdfplumber
